@@ -63,17 +63,21 @@ export default function Onboarding() {
           />
         </label>
 
-        <label className="field">
+        <div className="field">
           <span>Gender</span>
-          <select name="gender" value={form.gender} onChange={handleChange} required>
-            <option value="" disabled>Select...</option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-            <option value="non-binary">Non-binary</option>
-            <option value="prefer-not-to-say">Prefer not to say</option>
-            <option value="other">Other</option>
-          </select>
-        </label>
+          <div className="gender-chips">
+            {['Female', 'Male', 'Prefer not to say', 'Other'].map(option => (
+              <button
+                key={option}
+                type="button"
+                className={`chip ${form.gender === option.toLowerCase() ? 'selected' : ''}`}
+                onClick={() => setForm(prev => ({ ...prev, gender: option.toLowerCase() }))}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
 
         <label className="field">
           <span>Age</span>
