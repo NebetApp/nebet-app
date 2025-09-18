@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header.jsx'
 import Home from './pages/Home.jsx'
 import Onboarding from './pages/Onboarding.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/onboarding" element={<Onboarding />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route
             path="*"
             element={

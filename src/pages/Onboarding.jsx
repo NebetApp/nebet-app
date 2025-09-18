@@ -7,7 +7,7 @@ export default function Onboarding() {
   const [form, setForm] = useState({
     name: '',
     gender: '',
-    age: '',
+    dateOfBirth: '',
     medicalHistory: '',
     medications: ''
   })
@@ -22,8 +22,8 @@ export default function Onboarding() {
   async function handleSubmit(e) {
     e.preventDefault()
     setError('')
-    if (!form.name || !form.gender || !form.age) {
-      setError('Please complete name, gender, and age.')
+    if (!form.name || !form.gender || !form.dateOfBirth) {
+      setError('Please complete name, gender, and date of birth.')
       return
     }
     setSaving(true)
@@ -31,12 +31,12 @@ export default function Onboarding() {
       await saveProfile({
         name: form.name.trim(),
         gender: form.gender,
-        age: Number(form.age),
+        dateOfBirth: form.dateOfBirth,
         medicalHistory: form.medicalHistory.trim(),
         medications: form.medications.trim(),
         updatedAt: new Date().toISOString()
       })
-      navigate('/')
+      navigate('/dashboard')
     } catch (err) {
       console.error(err)
       setError('Failed to save. Please try again.')
@@ -80,17 +80,15 @@ export default function Onboarding() {
         </div>
 
         <label className="field">
-          <span>Age</span>
+          <span>Date of Birth</span>
           <input
-            name="age"
-            type="number"
-            min="0"
-            max="150"
-            inputMode="numeric"
-            placeholder="Your age"
-            value={form.age}
+            name="dateOfBirth"
+            type="date"
+            placeholder="YYYY-MM-DD"
+            value={form.dateOfBirth}
             onChange={handleChange}
             required
+            className="date-input"
           />
         </label>
 

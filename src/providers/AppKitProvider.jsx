@@ -31,7 +31,7 @@ createAppKit({
   networks,
   projectId,
   metadata,
-  features: { analytics: true }
+  features: { analytics: true },
 })
 
 export default function AppKitProvider({ children }) {
