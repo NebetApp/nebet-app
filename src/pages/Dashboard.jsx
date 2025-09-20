@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getProfile } from '../services/storage.js'
+import Header from '../components/Header.jsx'
+import { getPatientProfile } from '../services/storage.js'
 
 export default function Dashboard() {
   const [profile, setProfile] = useState(null)
@@ -9,7 +10,7 @@ export default function Dashboard() {
   useEffect(() => {
     async function loadProfile() {
       try {
-        const savedProfile = getProfile()
+        const savedProfile = getPatientProfile()
         setProfile(savedProfile)
       } catch (error) {
         console.error('Error loading profile:', error)
@@ -67,16 +68,6 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
       <div className="passport-container">
-        <div className="passport-header">
-          <div className="passport-title">
-            <h1>Health Passport</h1>
-            <div className="passport-subtitle">Nebet Health Profile</div>
-          </div>
-          <div className="passport-logo">
-            <div className="logo-placeholder">N</div>
-          </div>
-        </div>
-
         <div className="passport-body">
           <div className="passport-photo">
             <div className="photo-placeholder">
@@ -146,10 +137,11 @@ export default function Dashboard() {
           </div>
           <div className="passport-actions">
             <Link to="/onboarding" className="btn-secondary">Edit Profile</Link>
-            <button className="btn-primary" onClick={() => window.print()}>Print Passport</button>
+            <Link to="/funding" className="btn-primary">Fund treatments</Link>
           </div>
         </div>
       </div>
     </div>
   )
 }
+

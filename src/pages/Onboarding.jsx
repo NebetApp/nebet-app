@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { saveProfile } from '../services/storage.js'
+import { savePatientProfile } from '../services/storage.js'
 import { useNavigate } from 'react-router-dom'
 
 export default function Onboarding() {
@@ -28,13 +28,14 @@ export default function Onboarding() {
     }
     setSaving(true)
     try {
-      await saveProfile({
+      await savePatientProfile({
         name: form.name.trim(),
         gender: form.gender,
         dateOfBirth: form.dateOfBirth,
         medicalHistory: form.medicalHistory.trim(),
         medications: form.medications.trim(),
-        updatedAt: new Date().toISOString()
+        treatmentCost: 10000, // Default treatment cost
+        currentFunding: 4500 // Default initial funding
       })
       navigate('/dashboard')
     } catch (err) {
