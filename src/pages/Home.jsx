@@ -45,30 +45,122 @@ export default function Home() {
   }
 
   return (
-    <section className="home">
-      <h1 className="title">Nebet</h1>
-      <p className="subtitle">Empowering health with trust and technology</p>
-      
-      <div className="role-selection">
-        <h2>How would you like to enter?</h2>
-        <p className="role-description">Choose your role to get started</p>
-        
-        <div className="role-buttons">
-          <div className="role-card patient">
-            <div className="role-icon">👤</div>
-            <h3>Patient</h3>
-            <p>Request funds for your medical treatment</p>
-            <button onClick={handlePatientLogin} className="btn-primary btn-patient">Enter as Patient</button>
+    <div className="home">
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="hero-content">
+          <div className="hero-text">
+            <h1 className="hero-title">Nebet</h1>
+            <p className="hero-subtitle">Empowering health with trust and technology</p>
+            <p className="hero-description">
+              A decentralized platform connecting patients in need with compassionate donors, 
+              ensuring transparency and security in medical funding.
+            </p>
+            <div className="hero-cta">
+              <button onClick={handlePatientLogin} className="btn-primary btn-hero btn-patient">
+                <img src="/undraw_verified_m721.png" alt="Medical Care" className="btn-image" />
+                I Need Medical Funding
+              </button>
+              <button onClick={handleOrganizationLogin} className="btn-primary btn-hero btn-organization">
+                <img src="/undraw_instant-support_oav0.png" alt="Help Support" className="btn-image" />
+                I Want to Help
+              </button>
+            </div>
           </div>
-          
-          <div className="role-card organization">
-            <div className="role-icon">🏢</div>
-            <h3>Company / Foundation</h3>
-            <p>Donate to verified and transparent patients</p>
-            <button onClick={handleOrganizationLogin} className="btn-primary btn-organization">Enter as Organization</button>
+          <div className="hero-image">
+            <div className="hero-visual">
+              <div className="hero-icon">
+                <img src="/nebetlogo.png" alt="Nebet Logo" className="hero-logo" />
+              </div>
+              <div className="hero-pulse"></div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Features Section */}
+      <section className="features">
+        <div className="features-header">
+          <h2>Why Choose Nebet?</h2>
+          <p>Transforming medical funding through blockchain technology</p>
+        </div>
+        
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon"><img src="/undraw_security-on_3ykb.png" alt="Lock" /></div>
+            <h3>Secure & Transparent</h3>
+            <p>Blockchain-powered transactions ensure complete transparency and security for all donations.</p>
+          </div>
+          
+          <div className="feature-card">
+            <div className="feature-icon"><img src="/undraw_verified_m721.png" alt="Verified" /></div>
+            <h3>Verified Patients</h3>
+            <p>Every patient is thoroughly verified to ensure legitimate medical needs and proper fund usage.</p>
+          </div>
+          
+          <div className="feature-card">
+            <div className="feature-icon"><img src="/undraw_instant-support_oav0.png" alt="Lightning" /></div>
+            <h3>Instant Access</h3>
+            <p>Quick and easy access to medical funding when you need it most, without bureaucratic delays.</p>
+          </div>
+          
+          <div className="feature-card">
+            <div className="feature-icon"><img src="/undraw_world_bdnk.png" alt="Global Community" /></div>
+            <h3>Global Community</h3>
+            <p>Connect with donors worldwide who are ready to support your medical journey.</p>
+          </div>
+          
+          <div className="feature-card">
+            <div className="feature-icon"><img src="/undraw_real-time-analytics_50za.png" alt="Tracking" /></div>
+            <h3>Real-time Tracking</h3>
+            <p>Track funding progress and see exactly how your donations are making a difference.</p>
+          </div>
+          
+          <div className="feature-card">
+            <div className="feature-icon"><img src="/undraw_discount_igfl.png" alt="Low Fees" /></div>
+            <h3>Low Fees</h3>
+            <p>Minimal transaction fees ensure maximum funds reach the patients who need them.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Section */}
+      <section className="trust">
+        <div className="trust-content">
+          <h2>Built on Trust</h2>
+          <p>Our platform combines cutting-edge technology with human compassion to create a reliable medical funding ecosystem.</p>
+          <div className="trust-stats">
+            <div className="stat">
+              <div className="stat-number">100%</div>
+              <div className="stat-label">Transparent</div>
+            </div>
+            <div className="stat">
+              <div className="stat-number">24/7</div>
+              <div className="stat-label">Support</div>
+            </div>
+            <div className="stat">
+              <div className="stat-number">0</div>
+              <div className="stat-label">Hidden Fees</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="final-cta">
+        <div className="cta-content">
+          <h2>Ready to Make a Difference?</h2>
+          <p>Join thousands of patients and donors already using Nebet to transform healthcare funding.</p>
+          <div className="cta-buttons">
+            <button onClick={handlePatientLogin} className="btn-primary btn-cta btn-patient">
+              Get Started as Patient
+            </button>
+            <button onClick={handleOrganizationLogin} className="btn-primary btn-cta btn-organization">
+              Become a Donor
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }
